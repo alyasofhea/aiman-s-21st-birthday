@@ -4,118 +4,136 @@
 <meta charset="UTF-8">
 <title>For You ♡</title>
 
-<!-- Fonts: cursive for titles, gentle sans for body -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Parisienne&display=swap" rel="stylesheet">
 
 <style>
-/* Body soft pastel background */
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Parisienne', cursive;
+/* Body */
+body {
+    margin: 0;
+    min-height: 100vh;               /* allow scrolling */
+    font-family: 'Parisienne', cursive;
     background: linear-gradient(135deg, #ffe6e6, #fff0f5);
-    color:#333;
-    overflow:hidden;
+    color: #333;
+    overflow-x: hidden;               /* hide horizontal scroll from hearts */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;           /* stack content vertically */
+    padding: 50px 20px;               /* spacing around container */
 }
 
 /* Main card */
-.container{
-    text-align:center;
-    max-width:480px;
-    padding:50px 30px;
+.container {
+    text-align: center;
+    max-width: 480px;
+    padding: 50px 30px;
     background: rgba(255,255,255,0.5);
-    border-radius:25px;
+    border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     backdrop-filter: blur(10px);
     position: relative;
+    margin-bottom: 50px;              /* extra space at bottom for scrolling */
 }
 
 /* Title */
-h1{
-    font-family:'Dancing Script', cursive;
-    font-size:50px;
-    margin-bottom:20px;
-    color:#e75480;
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #e75480;
 }
 
 /* Text */
-p{
-    font-size:18px;
-    line-height:1.8;
-    color:#555;
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
 }
 
-/* Photo */
-img{
-    width:220px;
-    border-radius:16px;
-    margin:30px 0;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+/* Image */
+img {
+    width: 220px;
+    border-radius: 16px;
+    margin: 30px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* Button */
-button{
-    margin-top:25px;
-    padding:12px 25px;
-    font-size:16px;
-    border:1px solid #e75480;
-    background:transparent;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.3s;
-    color:#e75480;
-    font-weight:500;
+button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: 1px solid #e75480;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #e75480;
+    font-weight: 500;
 }
 
-button:hover{
-    background:#ffd6e0;
+button:hover {
+    background: #ffd6e0;
     transform: scale(1.05);
 }
 
 /* Hidden message */
-.hidden{
-    display:none;
-    margin-top:25px;
-    opacity:0;
+.hidden {
+    display: none;
+    margin-top: 25px;
+    opacity: 0;
     transition: opacity 2s ease-in-out;
 }
 
-.show{
-    display:block;
-    opacity:1;
+.show {
+    display: block;
+    opacity: 1;
 }
 
 /* Floating hearts */
-.heart{
-    position:absolute;
-    color:#ff4b99;
-    font-size:20px;
+.heart {
+    position: absolute;
+    color: #ff4b99;
+    font-size: 20px;
     animation: float 6s linear infinite;
-    pointer-events:none;
-    opacity:0.8;
+    pointer-events: none;
+    opacity: 0.8;
 }
 
-@keyframes float{
-    0%{transform:translateY(100vh) scale(0.5); opacity:0;}
-    50%{opacity:1;}
-    100%{transform:translateY(-10vh) scale(1); opacity:0;}
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* Make responsive for smaller screens */
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 20px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 16px;
+    }
+    img {
+        width: 180px;
+    }
 }
 </style>
 
 <script>
 function showMessage(){
-    const msg=document.getElementById("secret");
+    const msg = document.getElementById("secret");
     msg.classList.add("show");
 }
 
 // Floating hearts animation
 setInterval(function(){
-    const heart=document.createElement("div");
+    const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.innerHTML="❤";
+    heart.innerHTML = "❤";
     heart.style.left = Math.random()*100 + "vw";
     heart.style.fontSize = (Math.random()*25 + 15) + "px";
     document.body.appendChild(heart);
@@ -124,7 +142,6 @@ setInterval(function(){
 </script>
 
 </head>
-
 <body>
 
 <div class="container">
