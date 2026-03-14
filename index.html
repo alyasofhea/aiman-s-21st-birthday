@@ -92,26 +92,40 @@ button:hover{
     background:rgba(0,0,0,0.9);
     display:flex;
     justify-content:center;
-    align-items:center;
+
+    align-items:flex-start;
+    padding:60px 20px;
+    overflow-y:auto;
+
     visibility:hidden;
     opacity:0;
     transition:0.5s;
 }
+
+.popup.show{
+    visibility:visible;
+    opacity:1;
+}
+
+/* popup message */
 
 .popup-content{
     background:white;
     color:black;
     padding:45px;
     border-radius:18px;
-    max-width:420px;
-    text-align:center;
+    max-width:600px;
+    width:100%;
+    text-align:left;
     font-family:'Great Vibes',cursive;
-    font-size:28px;
+    font-size:26px;
+    line-height:1.6;
 }
 
-.popup.show{
-    visibility:visible;
-    opacity:1;
+/* prevent closing when clicking message */
+
+.popup-content{
+    cursor:auto;
 }
 
 /* video popup */
@@ -161,6 +175,10 @@ h1{
 
 img{
     max-width:90%;
+}
+
+.popup-content{
+    font-size:22px;
 }
 
 }
@@ -237,7 +255,7 @@ thank you for always being my safe place.
 
 <button onclick="openWish()">click here hehe</button>
 <br>
-    
+
 <button onclick="playMusic()">play my fav song ♡</button>
 <button onclick="pauseMusic()">pause music</button>
 <br>
@@ -250,22 +268,22 @@ thank you for always being my safe place.
 
 <div class="popup" id="popup" onclick="closeWish()">
 
-<div class="popup-content">
+<div class="popup-content" onclick="event.stopPropagation()">
+
 happy birthday aiman ♡ <br><br>
-i hope today brings you a lot of small reasons to smile. even if hidup tak selalu mudah, saya harap harini awak rasa dihargai dan disayangi.
-    sometimes saya terfikir, jalan cerita kita ni saya tak pernah terfikir untuk terjadi macam mana ianya sekarang. you came into my life 
-    when i wasn't expecting anything, tapi slowly awak became yang penting dalam hidup saya.
 
-    saya tahu sekarang mungkin situasi kita dah tak macam dulu. some things changed, and kita akan jalani hari hari kita yang akan datang.
-    waktu tu, saya akan berdia supaya allah teguhkan hati kita berdua untuk terus kuat dan faham each other, okay?
+i hope today brings you a lot of small reasons to smile. even if hidup tak selalu mudah, saya harap harini awak rasa dihargai dan disayangi.<br><br>
 
-    you may not realize this, but you are one the reasons why my days felt brighter, sayang. and for that, i will always be thankful. 
-    tetaplah jadi lelaki baik, bertanggungjawab untuk selamanya okay.
+sometimes saya terfikir, jalan cerita kita ni saya tak pernah terfikir untuk terjadi macam mana ianya sekarang. you came into my life when i wasn't expecting anything, tapi slowly awak became yang penting dalam hidup saya.<br><br>
 
-    happy birthday to someone who will always have a special place in my heart. 
-    i hope this year treats you gently, brings you peace, and brings you closer to all the dreams you've been chasing.
+saya tahu sekarang mungkin situasi kita dah tak macam dulu. some things changed, and kita akan jalani hari hari kita yang akan datang. waktu tu, saya akan berdoa supaya allah teguhkan hati kita berdua untuk terus kuat dan faham each other, okay?<br><br>
 
-    thank you, for existing and loving me the way you did ♡ 
+you may not realize this, but you are one the reasons why my days felt brighter, sayang. and for that, i will always be thankful. tetaplah jadi lelaki baik, bertanggungjawab untuk selamanya okay.<br><br>
+
+happy birthday to someone who will always have a special place in my heart. i hope this year treats you gently, brings you peace, and brings you closer to all the dreams you've been chasing.<br><br>
+
+thank you, for existing and loving me the way you did ♡
+
 </div>
 
 </div>
@@ -274,7 +292,7 @@ i hope today brings you a lot of small reasons to smile. even if hidup tak selal
 
 <div class="popup" id="videoPopup" onclick="closeVideo()">
 
-<div class="video-content">
+<div class="video-content" onclick="event.stopPropagation()">
 
 <video id="video" width="400" controls>
 <source src="video.mp4" type="video/mp4">
