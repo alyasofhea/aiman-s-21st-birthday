@@ -114,6 +114,14 @@ button:hover{
     opacity:1;
 }
 
+/* video popup */
+
+.video-content{
+    background:black;
+    padding:20px;
+    border-radius:18px;
+}
+
 /* floating hearts */
 
 .heart{
@@ -139,7 +147,7 @@ button:hover{
     }
 }
 
-/* mobile optimization */
+/* mobile */
 
 @media (max-width:600px){
 
@@ -169,8 +177,26 @@ function closeWish(){
     document.getElementById("popup").classList.remove("show");
 }
 
+/* music */
+
 function playMusic(){
     document.getElementById("music").play();
+}
+
+function pauseMusic(){
+    document.getElementById("music").pause();
+}
+
+/* video */
+
+function openVideo(){
+    document.getElementById("videoPopup").classList.add("show");
+    document.getElementById("video").play();
+}
+
+function closeVideo(){
+    document.getElementById("videoPopup").classList.remove("show");
+    document.getElementById("video").pause();
 }
 
 /* floating hearts */
@@ -211,11 +237,16 @@ thank you for being my safe place.
 
 <button onclick="openWish()">open my heart</button>
 <br>
+
 <button onclick="playMusic()">play our song ♡</button>
+<button onclick="pauseMusic()">pause music</button>
+<br>
+
+<button onclick="openVideo()">play our video ♡</button>
 
 </div>
 
-<!-- popup wish -->
+<!-- wish popup -->
 
 <div class="popup" id="popup" onclick="closeWish()">
 
@@ -224,6 +255,20 @@ happy birthday my love ♡ <br><br>
 i’m grateful for you in ways words can’t explain.  
 thank you for being the calm in my chaos.  
 i hope today reminds you how loved you are.
+</div>
+
+</div>
+
+<!-- video popup -->
+
+<div class="popup" id="videoPopup" onclick="closeVideo()">
+
+<div class="video-content">
+
+<video id="video" width="400" controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+
 </div>
 
 </div>
