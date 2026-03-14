@@ -24,15 +24,15 @@ body{
 
 .container{
     text-align:center;
-    max-width:500px;
-    padding:50px 40px;
+    max-width:700px;
+    padding:50px 30px;
 }
 
 /* title */
 
 h1{
     font-family:'Great Vibes',cursive;
-    font-size:55px;
+    font-size:60px;
     margin-bottom:10px;
     letter-spacing:2px;
 }
@@ -40,21 +40,29 @@ h1{
 /* text */
 
 p{
-    font-size:16px;
+    font-size:17px;
     line-height:1.8;
     color:#ddd;
 }
 
-/* image */
+/* responsive image */
 
 img{
-    width:220px;
-    border-radius:14px;
-    margin:30px 0;
+    width:100%;
+    max-width:480px;
+    height:auto;
+    border-radius:18px;
+    margin:35px 0;
     filter:grayscale(100%);
+    box-shadow:0 12px 40px rgba(255,255,255,0.15);
+    transition:0.4s;
 }
 
-/* button */
+img:hover{
+    transform:scale(1.03);
+}
+
+/* buttons */
 
 button{
     margin-top:15px;
@@ -73,7 +81,7 @@ button:hover{
     color:black;
 }
 
-/* popup wish */
+/* popup */
 
 .popup{
     position:fixed;
@@ -81,7 +89,7 @@ button:hover{
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.85);
+    background:rgba(0,0,0,0.9);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -93,12 +101,12 @@ button:hover{
 .popup-content{
     background:white;
     color:black;
-    padding:40px;
+    padding:45px;
     border-radius:18px;
-    max-width:400px;
+    max-width:420px;
     text-align:center;
     font-family:'Great Vibes',cursive;
-    font-size:26px;
+    font-size:28px;
 }
 
 .popup.show{
@@ -131,6 +139,24 @@ button:hover{
     }
 }
 
+/* mobile optimization */
+
+@media (max-width:600px){
+
+h1{
+    font-size:45px;
+}
+
+.container{
+    padding:40px 20px;
+}
+
+img{
+    max-width:90%;
+}
+
+}
+
 </style>
 
 <script>
@@ -142,8 +168,6 @@ function openWish(){
 function closeWish(){
     document.getElementById("popup").classList.remove("show");
 }
-
-/* play music */
 
 function playMusic(){
     document.getElementById("music").play();
@@ -158,7 +182,7 @@ heart.className="heart";
 heart.innerHTML="♡";
 
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*15+15)+"px";
+heart.style.fontSize=(Math.random()*18+15)+"px";
 
 document.body.appendChild(heart);
 
@@ -186,13 +210,10 @@ thank you for being my safe place.
 </p>
 
 <button onclick="openWish()">open my heart</button>
-
 <br>
-
 <button onclick="playMusic()">play our song ♡</button>
 
 </div>
-
 
 <!-- popup wish -->
 
@@ -206,7 +227,6 @@ i hope today reminds you how loved you are.
 </div>
 
 </div>
-
 
 <!-- music -->
 
