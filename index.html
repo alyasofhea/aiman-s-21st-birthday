@@ -57,7 +57,7 @@ img{
 /* button */
 
 button{
-    margin-top:30px;
+    margin-top:15px;
     padding:12px 28px;
     font-size:15px;
     border:1px solid white;
@@ -143,6 +143,12 @@ function closeWish(){
     document.getElementById("popup").classList.remove("show");
 }
 
+/* play music */
+
+function playMusic(){
+    document.getElementById("music").play();
+}
+
 /* floating hearts */
 
 setInterval(function(){
@@ -172,7 +178,7 @@ heart.remove();
 
 <h1>happy birthday</h1>
 
-<img src="yihihi.jpeg">
+<img src="us.jpeg">
 
 <p>
 to the one who brings calm into my life,
@@ -180,6 +186,10 @@ thank you for being my safe place.
 </p>
 
 <button onclick="openWish()">open my heart</button>
+
+<br>
+
+<button onclick="playMusic()">play our song ♡</button>
 
 </div>
 
@@ -198,9 +208,9 @@ i hope today reminds you how loved you are.
 </div>
 
 
-<!-- background music -->
+<!-- music -->
 
-<audio autoplay loop>
+<audio id="music" loop>
 <source src="hinggatuabersama.mp3" type="audio/mpeg">
 </audio>
 
